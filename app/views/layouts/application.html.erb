@@ -7,8 +7,17 @@
   <body>
     <%= render "layouts/header" %>
     <div class="container">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %> alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= message %>
+        </div>
+      <% end %>
       <%= yield %>
       <%= render "layouts/footer" %>
+      <%= debug params if Rails.env.development? %>
     </div>
   </body>
 </html>

@@ -36,6 +36,7 @@ en:
       password: "Password"
       confirm: "Confirmation"
       submit: "Create my account"
+      success: "Account was created successfully"
   shared:
     error_messages:
       title: "The form contains"
