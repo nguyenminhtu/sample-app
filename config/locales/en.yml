@@ -6,13 +6,18 @@ en:
     vi: "Vietnam"
   layouts:
     header:
-      help: "Help"
       login: "Login"
       home: "SampleApp"
+      signup: "Sign Up"
+      user: "Users"
+      profile: "Profile"
+      setting: "Settings"
+      logout: "Log out"
     footer:
       about: "About"
       contact: "Contact"
       content: "Copyright &copy; 2017, All Rights Reversed."
+      help: "Help"
   static_pages:
     home:
       title: "HomePage"
@@ -30,7 +35,6 @@ en:
   users:
     new:
       title: "Sign Up"
-      content: "This is sign up page"
       name: "Name"
       email: "Email"
       password: "Password"
@@ -41,3 +45,13 @@ en:
     error_messages:
       title: "The form contains"
       error: "error"
+  sessions:
+    new:
+      title: "Log In"
+      email: "Email"
+      password: "Password"
+      submit: "Let me in"
+      success: "Login successfully"
+      error: "Invalid email/password"
+      logout: "Logout successfully"
+      new: "New user ???"

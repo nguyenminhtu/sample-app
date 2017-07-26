@@ -6,13 +6,18 @@ vi:
     name: "SampleApp"
   layouts:
     header:
-      help: "Giúp đỡ"
       login: "Đăng nhập"
       home: "SampleApp"
+      signup: "Đăng ký"
+      user: "Users"
+      profile: "Ho so ca nhan"
+      setting: "Cai dat"
+      logout: "Dang xuat"
     footer:
       about: "Về chúng tôi"
       contact: "Liên lạc"
       content: "Copyright &copy; 2017, All Rights Reversed."
+      help: "Giúp đỡ"
   static_pages:
     home:
       title: "Trang chủ"
@@ -30,14 +35,23 @@ vi:
   users:
     new:
       title: "Đăng ký"
-      content: "Đây là trang đăng ký"
       name: "Tên"
       email: "Địa chỉ email"
       password: "Mật khẩu"
       confirm: "Xác nhận mật khẩu"
       submit: "Tạo tài khoản"
-      success: "Tai khoan da duoc tao thanh cong"
+      success: "Tài khoản đã được tạo thành công"
   shared:
     error_messages:
       title: "Đã xảy ra"
       error: "lỗi"
+  sessions:
+    new:
+      title: "Đăng nhập"
+      email: "Địa chỉ email"
+      password: "Mật khẩu"
+      submit: "Đăng nhập"
+      success: "Đăng nhập thành công"
+      error: "Sai tên tài khoản hoặc mật khẩu !"
+      logout: "Đăng xuất thành công"
+      new: "Chua co tai khoan ???"
