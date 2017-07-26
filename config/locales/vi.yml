@@ -36,6 +36,7 @@ vi:
       password: "Mật khẩu"
       confirm: "Xác nhận mật khẩu"
       submit: "Tạo tài khoản"
+      success: "Tai khoan da duoc tao thanh cong"
   shared:
     error_messages:
       title: "Đã xảy ra"

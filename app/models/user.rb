@@ -8,13 +8,20 @@ class User < ApplicationRecord
     }
   validates :email, presence: true,
     length: {maximum: Settings.email.maximum},
-    format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-  validates :password, length: {minimum: Settings.password.minimum},
-    presence: true
+    format: {with: VALID_EMAIL_REGEX},
+    uniqueness: {case_sensitive: false}
+  validates :password, presence: true,
+    length: {minimum: Settings.password.minimum}
 
   before_save :email_downcase
 
   has_secure_password
+
+  def gravatar_url options = {size: 80}
+    gravatar_id = Digest::MD5.hexdigest email.downcase
+    size = options[:size]
+    "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+  end
 
   private
   def email_downcase

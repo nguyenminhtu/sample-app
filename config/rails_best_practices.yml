@@ -28,7 +28,9 @@ RemoveUnusedMethodsInControllersCheck: {
     "StaticPagesController#home",
     "StaticPagesController#help",
     "StaticPagesController#about",
-    "StaticPagesController#contact"
+    "StaticPagesController#contact",
+    "UsersController#show",
+    "UsersController#create"
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
