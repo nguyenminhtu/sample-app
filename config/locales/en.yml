@@ -1,9 +1,9 @@
 en:
+  app:
+    name: "SampleApp"
   languages:
     en: "English"
     vi: "Vietnam"
-  app:
-    name: "SampleApp"
   layouts:
     header:
       help: "Help"
@@ -12,6 +12,7 @@ en:
     footer:
       about: "About"
       contact: "Contact"
+      content: "Copyright &copy; 2017, All Rights Reversed."
   static_pages:
     home:
       title: "HomePage"
@@ -30,3 +31,12 @@ en:
     new:
       title: "Sign Up"
       content: "This is sign up page"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      confirm: "Confirmation"
+      submit: "Create my account"
+  shared:
+    error_messages:
+      title: "The form contains"
+      error: "error"

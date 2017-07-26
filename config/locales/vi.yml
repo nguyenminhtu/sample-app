@@ -12,6 +12,7 @@ vi:
     footer:
       about: "Về chúng tôi"
       contact: "Liên lạc"
+      content: "Copyright &copy; 2017, All Rights Reversed."
   static_pages:
     home:
       title: "Trang chủ"
@@ -30,3 +31,12 @@ vi:
     new:
       title: "Đăng ký"
       content: "Đây là trang đăng ký"
+      name: "Tên"
+      email: "Địa chỉ email"
+      password: "Mật khẩu"
+      confirm: "Xác nhận mật khẩu"
+      submit: "Tạo tài khoản"
+  shared:
+    error_messages:
+      title: "Đã xảy ra"
+      error: "lỗi"
