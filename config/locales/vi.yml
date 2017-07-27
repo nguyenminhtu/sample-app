@@ -41,6 +41,29 @@ vi:
       confirm: "Xác nhận mật khẩu"
       submit: "Tạo tài khoản"
       success: "Tài khoản đã được tạo thành công"
+    edit:
+      title: "Sua thong tin"
+      content: "Sua thong tin ca nhan"
+      name: "Ten"
+      email: "Dia chi email"
+      password: "Mat khau"
+      confirm: "Xac nhan mat khau"
+      submit: "Luu thay doi"
+      success: "Luu thay doi thanh cong"
+    index:
+      title: "Danh sach nguoi dung"
+      found: "Khong co nguoi dung nao"
+      delete: "Xoa"
+      destroy: "Xoa user thanh cong"
+      fail: "Xoa khong thanh cong"
+      id: "Ma so"
+      name: "Ho ten"
+      email: "Email"
+      avatar: "Anh dai dien"
+    find:
+      fail: "Khong tim thay user"
+    user:
+      confirm: "Ban co chac chan khong ?"
   shared:
     error_messages:
       title: "Đã xảy ra"
@@ -57,3 +80,8 @@ vi:
       signup: "Đăng ký ngay"
       new: "Chưa có tài khoản ???"
       remember: "Ghi nhớ đăng nhập"
+  authorization:
+    error: "Dang nhap de su dung"
+    fake: "Ban khong the sua thong tin cua nguoi dung khac"
+  admin:
+    fail: "Chi admin moi co the xoa"

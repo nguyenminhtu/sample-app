@@ -1,0 +1,16 @@
+ <tr>
+  <td><%= user.id %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td>
+    <%= link_to user_path(user) do %>
+      <%= image_tag user.gravatar_url,
+        class: "img-responsive img-circle", alt: user.name %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to t("users.index.delete"), user, method: :delete,
+      data: {confirm: t(".confirm")},
+      class: "btn btn-danger" %>
+  </td>
+</tr>

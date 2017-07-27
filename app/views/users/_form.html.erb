@@ -1,0 +1,29 @@
+<%= form_for user, url: url do |f| %>
+  <div class="form-group">
+    <%= f.label :name, t("users.new.name") %>
+    <%= f.text_field :name, class: "form-control",
+      autofocus: true, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, t("users.new.email") %>
+    <%= f.email_field :email, class: "form-control",
+      required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, t("users.new.password") %>
+    <%= f.password_field :password, class: "form-control",
+      required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confimation, t("users.new.confirm") %>
+    <%= f.password_field :password_confimation, class: "form-control",
+      required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit submit_title(user), class: "btn btn-primary" %>
+  </div>
+<% end %>
