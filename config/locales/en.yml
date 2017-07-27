@@ -54,4 +54,6 @@ en:
       success: "Login successfully"
       error: "Invalid email/password"
       logout: "Logout successfully"
+      signup: "Sign Up"
       new: "New user ???"
+      remember: "Remember me on this computer"

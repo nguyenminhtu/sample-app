@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     flash[:success] = t "sessions.new.logout"
     redirect_to root_path
   end
@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
 
   def find_success user
     log_in user
+    params[:session][:remember_me] == "1" ? remember(user) : forget(user)
     flash[:success] = t "sessions.new.success"
     redirect_to user
   end
