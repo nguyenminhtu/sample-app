@@ -1,0 +1,6 @@
+<%= t "mailer.hello" %> <%= @user.name %>,
+
+<%= t "mailer.message" %>
+
+<%= link_to t("mailer.submit"), edit_account_activation_url(@user.activation_digest,
+  email: @user.email) %>

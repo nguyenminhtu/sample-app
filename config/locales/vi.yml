@@ -1,7 +1,7 @@
 vi:
   languages:
-    en: "English"
-    vi: "Vietnam"
+    en: "En"
+    vi: "Vi"
   app:
     name: "SampleApp"
   layouts:
@@ -42,28 +42,28 @@ vi:
       submit: "Tạo tài khoản"
       success: "Tài khoản đã được tạo thành công"
     edit:
-      title: "Sua thong tin"
-      content: "Sua thong tin ca nhan"
-      name: "Ten"
-      email: "Dia chi email"
-      password: "Mat khau"
-      confirm: "Xac nhan mat khau"
-      submit: "Luu thay doi"
-      success: "Luu thay doi thanh cong"
+      title: "Sửa thông tin"
+      content: "Sửa thông tin cá nhân"
+      name: "Tên"
+      email: "Địa chỉ email"
+      password: "Mật khẩu"
+      confirm: "Xác nhận mật khẩu"
+      submit: "Lưu thay đổi"
+      success: "Lưu thay đổi thành công"
     index:
-      title: "Danh sach nguoi dung"
-      found: "Khong co nguoi dung nao"
-      delete: "Xoa"
-      destroy: "Xoa user thanh cong"
-      fail: "Xoa khong thanh cong"
-      id: "Ma so"
-      name: "Ho ten"
+      title: "Danh sách người dùng"
+      found: "Không có người dùng nào"
+      delete: "Xóa"
+      destroy: "Xóa user thành công"
+      fail: "Xóa không thành công"
+      id: "Mã số"
+      name: "Họ tên"
       email: "Email"
-      avatar: "Anh dai dien"
+      avatar: "Ảnh đại diện"
     find:
-      fail: "Khong tim thay user"
+      fail: "Không tìm thấy người dùng"
     user:
-      confirm: "Ban co chac chan khong ?"
+      confirm: "Bạn có chắc chắn muốn xóa không ?"
   shared:
     error_messages:
       title: "Đã xảy ra"
@@ -81,7 +81,19 @@ vi:
       new: "Chưa có tài khoản ???"
       remember: "Ghi nhớ đăng nhập"
   authorization:
-    error: "Dang nhap de su dung"
-    fake: "Ban khong the sua thong tin cua nguoi dung khac"
+    error: "Vui lòng đăng nhập để sử dụng"
+    fake: "Bạn không thể sửa thông tin của người dùng khác"
   admin:
-    fail: "Chi admin moi co the xoa"
+    fail: "Chỉ admin mới có thể xóa"
+  mailer:
+    hello: "Xin chào"
+    message: "Cảm ơn bạn đã sử dụng dịch của chúng tôi.
+      Ấn nút bên dưới để kích hoạt tài khoản."
+    submit: "Kích hoạt"
+    subject: "Kích hoạt tài khoản"
+    success: "Kiểm tra email để kích hoạt tài khoản"
+    active:
+      success: "Kích hoạt tài khoản thành công"
+      fail: "Kích hoạt không thành công"
+      notactive: "Tài khoản chưa được kích hoạt.
+        Kiểm tra lại email."
