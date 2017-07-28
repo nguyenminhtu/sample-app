@@ -6,3 +6,4 @@ email:
 password:
   minimum: 6
 per_page: 5
+expire_time: 2

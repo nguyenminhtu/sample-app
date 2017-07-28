@@ -98,3 +98,30 @@ en:
       fail: "Invalid activation link"
       notactive: "Account not activated.
         Check your email again"
+  password_resets:
+    new:
+      title: "Forgot Password"
+      submit: "Send me"
+    edit:
+      new: "Forgot password"
+      title: "Reset Password"
+      password: "Password"
+      confirm: "Confirm Password"
+      submit: "Reset"
+    send:
+      success: "Check your email for instructions"
+      fail: "Email not found"
+    subject: "Reset password"
+    reset:
+      title: "Reset Password"
+      click: "Click link below to reset your password:"
+      submit: "Reset now"
+      expire: "This link will expire in two hours."
+      ignore: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+    update:
+      success: "Password has been reset."
+      expire: "Password reset has expired"
+      blank: "can't be blank"
+    find:
+      fail: "User not found"

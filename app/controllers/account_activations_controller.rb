@@ -1,7 +1,7 @@
 class AccountActivationsController < ApplicationController
   def edit
     user = User.find_by email: params[:email]
-    if user && user.auth_user?(params[:id])
+    if user && user.valid_active_account?(params[:id])
       response_success user
     else
       response_fail

@@ -97,3 +97,31 @@ vi:
       fail: "Kích hoạt không thành công"
       notactive: "Tài khoản chưa được kích hoạt.
         Kiểm tra lại email."
+  password_resets:
+    new:
+      title: "Quen mat khau"
+      submit: "Gui cho toi"
+    edit:
+      new: "Quen mat khau"
+      title: "Reset mat khau"
+      password: "Mat khau"
+      confirm: "Xac nhan mat khau"
+      submit: "Dat lai mat khau"
+    send:
+      success: "Kiem tra email cua ban de nhan huong dan"
+      fail: "Khong tim thay email"
+    subject: "Quen mat khau"
+    reset:
+      title: "Lay lai mat khau"
+      click: "An vao link duoi day de lay lai mat khau"
+      submit: "Lay mat khau"
+      expire: "Link se het han trong 2 tieng."
+      ignore: "Neu khong phai ban yeu cau reset mat khau.
+        Bo qua email va mat khau cua ban se khong bi thay doi"
+    update:
+      success: "Mat khau da duoc thay doi thanh cong"
+      expire: "Link lay mat khau da het han.
+        Tao lai link khac nhe"
+      blank: "khong duoc rong"
+    find:
+      fail: "Khong tim thay user"

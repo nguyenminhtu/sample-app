@@ -2,5 +2,5 @@
 
 <%= t "mailer.message" %>
 
-<%= link_to t("mailer.submit"), edit_account_activation_url(@user.activation_digest,
+<%= link_to t("mailer.submit"), edit_account_activation_url(@user.activation_token,
   email: @user.email) %>

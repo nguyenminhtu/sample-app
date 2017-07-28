@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  attr_reader :remember_token
+  attr_reader :remember_token, :reset_token, :activation_token
 
   validates :name, presence: true,
     length: {
@@ -16,7 +16,7 @@ class User < ApplicationRecord
     length: {minimum: Settings.password.minimum},
     allow_nil: true
 
-  before_create :create_activation_token
+  before_create :create_activation_digest
   before_save :email_downcase
 
   scope :most_recent, ->{order created_at: :desc}
@@ -46,18 +46,15 @@ class User < ApplicationRecord
     end
   end
 
-  def remember_token= val
-    self.remember_token = val
-  end
-
   def remember
-    remember_token = User.new_token
+    @remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)
   end
 
-  def authenticated? remember_token
-    return false if remember_digest?
-    BCrypt::Password.new(remember_digest).is_password? remember_token
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false unless digest
+    BCrypt::Password.new(digest).is_password? token
   end
 
   def active_user
@@ -72,17 +69,36 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
-  def auth_user? token
-    !activated? && activation_digest == token
+  def create_reset_token
+    @reset_token = User.new_token
+    update_attributes reset_digest: User.digest(reset_token),
+      reset_sent_at: Time.zone.now
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < Settings.expire_time.hours.ago
+  end
+
+  def valid_active_account? token
+    authenticated?(:activation, token) && !activated?
+  end
+
+  def valid_reset_password? token
+    authenticated? :reset, token
   end
 
   private
 
   def email_downcase
-    self.email = email.downcase
+    email.downcase!
   end
 
-  def create_activation_token
-    self.activation_digest = User.new_token
+  def create_activation_digest
+    @activation_token = User.new_token
+    self.activation_digest = User.digest activation_token
   end
 end
