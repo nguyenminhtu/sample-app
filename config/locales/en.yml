@@ -41,6 +41,29 @@ en:
       confirm: "Confirmation"
       submit: "Create my account"
       success: "Account was created successfully"
+    edit:
+      title: "Edit User"
+      content: "Update your profile"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      confirm: "Confirm password"
+      submit: "Save changes"
+      success: "User was updated successfully"
+    index:
+      title: "All Users"
+      found: "User not found"
+      delete: "Remove"
+      destroy: "User was deleted successfully"
+      fail: "User could not be deleted"
+      id: "ID"
+      name: "Name"
+      email: "Email"
+      avatar: "Avatar"
+    find:
+      fail: "User could not be found"
+    user:
+      confirm: "Are you sure ?"
   shared:
     error_messages:
       title: "The form contains"
@@ -57,3 +80,8 @@ en:
       signup: "Sign Up"
       new: "New user ???"
       remember: "Remember me on this computer"
+  authorization:
+    error: "Login please"
+    fake: "Only owner account can perform that action"
+  admin:
+    fail: "Only admin can perform that action"
