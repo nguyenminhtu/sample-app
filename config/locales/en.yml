@@ -1,6 +1,21 @@
 en:
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 days"
+        other: "%{count} days"
+      x_hours:
+        one: "1 hours"
+        other: "%{count} hours"
+      x_minutes:
+        one: "1 minutes"
+        other: "%{count} minutes"
   app:
     name: "SampleApp"
+    view: "View my profile"
+    submit: "Create post"
+    new_post: "Compose new post..."
+    title: "Micropost Feed"
   languages:
     en: "En"
     vi: "Vi"
@@ -125,3 +140,20 @@ en:
       blank: "can't be blank"
     find:
       fail: "User not found"
+  microposts:
+    new:
+      success: "Post was created successfully"
+      fail: "Could not create post"
+      posted: "Posted"
+      ago: "ago"
+    confirm: "Are you sure ??"
+    delete: "Delete"
+    destroy:
+      success: "Post was deleted successfully"
+      fail: "Could not delete post"
+    notfound: "Could not found micropost"
+    post: "micropost"
+    main: "Microposts"
+    maxsize: "should be less than 5MB"
+    js:
+      maxsize: "Maximum file size is 5MB. Please choose a smaller file."

@@ -20,6 +20,8 @@ gem "faker"
 gem "will_paginate"
 gem "will_paginate-bootstrap"
 gem "figaro"
+gem "carrierwave"
+gem "mini_magick"
 
 group :development, :test do
   gem "sqlite3"

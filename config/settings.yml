@@ -6,4 +6,11 @@ email:
 password:
   minimum: 6
 per_page: 5
+content:
+  maximum: 150
+  minimum: 5
 expire_time: 2
+image:
+  width: 330
+  height: 330
+  maxsize: 5

@@ -1,9 +1,24 @@
 vi:
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 ngay"
+        other: "%{count} ngay"
+      x_hours:
+        one: "1 gio"
+        other: "%{count} gio"
+      x_minutes:
+        one: "1 phut"
+        other: "%{count} phut"
   languages:
     en: "En"
     vi: "Vi"
   app:
     name: "SampleApp"
+    view: "Xem trang ca nhan"
+    submit: "Tao moi"
+    new_post: "Ban dang nghi gi..."
+    title: "Danh sach post"
   layouts:
     header:
       login: "Đăng nhập"
@@ -125,3 +140,20 @@ vi:
       blank: "khong duoc rong"
     find:
       fail: "Khong tim thay user"
+  microposts:
+    new:
+      success: "Tao post thanh cong"
+      fail: "Khong the tao post"
+      posted: "Duoc dang"
+      ago: "truoc"
+    confirm: "Ban co chac chan muon xoa khong ??"
+    delete: "Xoa"
+    destroy:
+      success: "Xoa post thanh cong"
+      fail: "Khong the xoa post"
+    notfound: "Khong tim thay micropost"
+    post: "bai dang"
+    main: "So bai dang"
+    maxsize: "khong duoc qua 5MB"
+    js:
+      maxsize: "Toi da anh la 5MB. Chon lai nhe"

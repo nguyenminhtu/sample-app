@@ -1,0 +1,8 @@
+<% if feeds.any? %>
+  <div class="text-center">
+    <%= will_paginate feeds, renderer: BootstrapPagination::Rails %>
+  </div>
+  <div class="row">
+    <%= render feeds %>
+  </div>
+<% end %>

@@ -15,14 +15,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show; end
+  def show
+    @microposts = user.microposts.paginate page: params[:page],
+      per_page: Settings.per_page
+  end
 
   def create
     @user = User.new user_params
     if user.save
-      response_success user
+      response_create_success user
     else
-      response_fail
+      response_create_fail
     end
   end
 
@@ -79,13 +82,13 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
-  def response_success user
+  def response_create_success user
     user.send_mail
     flash[:info] = t "mailer.success"
     redirect_to root_path
   end
 
-  def response_fail
+  def response_create_fail
     render :new
   end
 end

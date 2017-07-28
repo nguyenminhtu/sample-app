@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
     log_in user
     params[:session][:remember_me] == "1" ? remember(user) : forget(user)
     flash[:success] = t "sessions.new.success"
-    redirect_back_or user
+    redirect_back_or root_path
   end
 
   def user_not_activated

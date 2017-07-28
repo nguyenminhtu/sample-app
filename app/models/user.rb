@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   attr_reader :remember_token, :reset_token, :activation_token
 
+  has_many :microposts, dependent: :destroy
+
   validates :name, presence: true,
     length: {
       minimum: Settings.name.minimum,
@@ -84,7 +86,7 @@ class User < ApplicationRecord
   end
 
   def valid_active_account? token
-    authenticated?(:activation, token) && !activated?
+    !activated? && authenticated?(:activation, token)
   end
 
   def valid_reset_password? token

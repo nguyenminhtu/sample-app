@@ -1,0 +1,35 @@
+<div class="well">
+  <div class="row" id="micromicropost-<%= micropost.id %>">
+    <div class="col-md-2">
+      <%= link_to micropost.user do %>
+        <%= image_tag micropost.user.gravatar_url, class: "img-responsive" %>
+      <% end %>
+    </div>
+    <div class="col-md-10">
+      <p>
+        <%= link_to micropost.user.name, micropost.user %>
+      </p>
+
+      <p>
+        <%= micropost.content %>
+      </p>
+
+      <p>
+        <%= image_tag micropost.picture if micropost.picture? %>
+      </p>
+
+      <p>
+        <small>
+          <i><%= t "microposts.new.posted" %>:
+          <%= time_ago_in_words micropost.created_at %>
+          <%= t "microposts.new.ago" %>.</i>
+        </small>
+        <span class="pull-right">
+          <%= link_to t("microposts.delete"), micropost_path(micropost),
+            class: "btn btn-danger", method: :delete,
+            data: {confirm: t("microposts.confirm")} %>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
