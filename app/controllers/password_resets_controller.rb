@@ -41,18 +41,18 @@ class PasswordResetsController < ApplicationController
   end
 
   def valid_user?
-    redirect_to root_path unless user && user.valid_reset_password?(params[:id])
+    redirect_to root_path unless user.authenticated?(:reset, params[:id])
   end
 
   def check_expiration
-    return unless user.password_reset_expired?
+    return unless user.reset_sent_at < Settings.expire_time.hours.ago
     flash[:danger] = t "password_resets.update.expire"
     redirect_to new_password_reset_path
   end
 
   def response_create_success user
     user.create_reset_token
-    user.send_password_reset_email
+    user.send_reset_mail
     flash[:info] = t "password_resets.send.success"
     redirect_to root_path
   end

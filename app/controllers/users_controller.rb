@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if user.save
       response_create_success user
     else
-      response_create_fail
+      render :new
     end
   end
 
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    return if @user = User.active.find_by(id: params[:id])
+    return if (@user = User.active.find_by id: params[:id])
     flash[:danger] = t "users.find.fail"
     redirect_to users_path
   end
@@ -83,12 +83,8 @@ class UsersController < ApplicationController
   end
 
   def response_create_success user
-    user.send_mail
+    user.send_active_mail
     flash[:info] = t "mailer.success"
     redirect_to root_path
-  end
-
-  def response_create_fail
-    render :new
   end
 end

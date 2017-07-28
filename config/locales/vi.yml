@@ -34,7 +34,7 @@ vi:
       content: "Copyright &copy; 2017, All Rights Reversed."
       help: "Giúp đỡ"
   static_pages:
-    home:
+    index:
       title: "Trang chủ"
       content: "Chào mừng đến với website của tôi"
       button: "Đăng ký ngay"
@@ -157,3 +157,11 @@ vi:
     maxsize: "khong duoc qua 5MB"
     js:
       maxsize: "Toi da anh la 5MB. Chon lai nhe"
+  follower:
+    title: "Nhung nguoi dang theo doi ban"
+  following:
+    title: "Nhung nguoi ban dang theo doi"
+    submit: "Theo doi"
+    unsubmit: "Bo theo doi"
+    follow: "nguoi dang theo doi ban"
+    follower: "ban dang theo doi"

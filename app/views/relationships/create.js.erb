@@ -1,0 +1,6 @@
+<% del_relation = current_user.active_relationships.find_by followed_id:
+  params[:followed_id] %>
+$('#follow_form').html('<%= j(render "users/unfollow",\
+  del_relation: del_relation) %>');
+$('#followers').html('<%= pluralize @user.followers.count,\
+  "follower" %>');
