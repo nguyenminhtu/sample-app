@@ -2,8 +2,8 @@ en:
   app:
     name: "SampleApp"
   languages:
-    en: "English"
-    vi: "Vietnam"
+    en: "En"
+    vi: "Vi"
   layouts:
     header:
       login: "Login"
@@ -85,3 +85,16 @@ en:
     fake: "Only owner account can perform that action"
   admin:
     fail: "Only admin can perform that action"
+  mailer:
+    hello: "Hi"
+    message: "Welcome to the SampleApp.
+      Click link below to active your account"
+    submit: "Active"
+    subject: "Activation Account"
+    success: "Please check your email
+      for active your account"
+    active:
+      success: "Activated successfully"
+      fail: "Invalid activation link"
+      notactive: "Account not activated.
+        Check your email again"

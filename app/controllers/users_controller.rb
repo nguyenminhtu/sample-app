@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
 
   def index
-    @users = User.all.paginate(page: params[:page],
-      per_page: Settings.per_page)
+    @users = User.active.most_recent.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def new
@@ -20,11 +20,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if user.save
-      log_in user
-      flash[:success] = t "users.new.success"
-      redirect_to user
+      response_success user
     else
-      render :new
+      response_fail
     end
   end
 
@@ -52,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    return if @user = User.find_by(id: params[:id])
+    return if @user = User.active.find_by(id: params[:id])
     flash[:danger] = t "users.find.fail"
     redirect_to users_path
   end
@@ -79,5 +77,15 @@ class UsersController < ApplicationController
     return if current_user.admin?
     flash[:danger] = t "admin.fail"
     redirect_to login_path
+  end
+
+  def response_success user
+    user.send_mail
+    flash[:info] = t "mailer.success"
+    redirect_to root_path
+  end
+
+  def response_fail
+    render :new
   end
 end

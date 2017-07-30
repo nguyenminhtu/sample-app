@@ -19,6 +19,7 @@ gem "config"
 gem "faker"
 gem "will_paginate"
 gem "will_paginate-bootstrap"
+gem "figaro"
 
 group :development, :test do
   gem "sqlite3"
