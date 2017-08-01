@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   attr_reader :user
 
-  before_action :find_user, except: [:index, :new, :create]
-  before_action :require_logged_in, except: [:new, :create]
-  before_action :require_same_user, only: [:edit, :update]
-  before_action :require_admin, only: [:destroy]
+  before_action :find_user, except: %i(index new create)
+  before_action :require_logged_in, except: %i(new create)
+  before_action :require_same_user, only: %i(edit update)
+  before_action :require_admin, only: :destroy
 
   def index
     @users = User.active.most_recent.paginate page: params[:page],
