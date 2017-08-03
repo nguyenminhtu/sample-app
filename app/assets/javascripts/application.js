@@ -16,3 +16,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener('turbolinks:load', function () {
+  $('#micropost_picture').on('change', function () {
+    var size = this.files[0].size / 1024 / 1024;
+    if (size > 5) {
+      $('#micropost_picture').val('');
+    }
+  });
+});

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag current_user.gravatar_url, alt: current_user.name %>
+  </div>
+  <div class="col-md-10">
+    <h1><%= current_user.name %></h1>
+  </div>
+</div>
+<span><%= link_to t("app.view"), current_user %></span>
+<span><%= pluralize current_user.microposts.count, t("microposts.post") %></span>
