@@ -3,6 +3,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.serve_static_assets = false
 
   # config for mailer
   config.action_mailer.perform_deliveries = true

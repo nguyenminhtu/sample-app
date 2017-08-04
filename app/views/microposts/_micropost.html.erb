@@ -2,7 +2,8 @@
   <div class="row" id="micromicropost-<%= micropost.id %>">
     <div class="col-md-2">
       <%= link_to micropost.user do %>
-        <%= image_tag micropost.user.gravatar_url, class: "img-responsive" %>
+        <%= image_tag micropost.user.gravatar_url,
+          class: "img-responsive" %>
       <% end %>
     </div>
     <div class="col-md-10">

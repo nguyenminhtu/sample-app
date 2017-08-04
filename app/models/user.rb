@@ -4,6 +4,12 @@ class User < ApplicationRecord
   attr_reader :remember_token, :reset_token, :activation_token
 
   has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   validates :name, presence: true,
     length: {
@@ -19,7 +25,7 @@ class User < ApplicationRecord
     allow_nil: true
 
   before_create :create_activation_digest
-  before_save :email_downcase
+  before_save{email.downcase!}
 
   scope :most_recent, ->{order created_at: :desc}
   scope :active, ->{where activated: true}
@@ -67,8 +73,12 @@ class User < ApplicationRecord
     update_attributes remember_digest: nil
   end
 
-  def send_mail
+  def send_active_mail
     UserMailer.account_activation(self).deliver_now
+  end
+
+  def send_reset_mail
+    UserMailer.password_reset(self).deliver_now
   end
 
   def create_reset_token
@@ -77,27 +87,23 @@ class User < ApplicationRecord
       reset_sent_at: Time.zone.now
   end
 
-  def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
-  end
-
-  def password_reset_expired?
-    reset_sent_at < Settings.expire_time.hours.ago
-  end
-
   def valid_active_account? token
     !activated? && authenticated?(:activation, token)
   end
 
-  def valid_reset_password? token
-    authenticated? :reset, token
+  def follow user
+    active_relationships.create followed_id: user.id
+  end
+
+  def unfollow user
+    following.delete user
+  end
+
+  def following? user
+    following.include? user
   end
 
   private
-
-  def email_downcase
-    email.downcase!
-  end
 
   def create_activation_digest
     @activation_token = User.new_token

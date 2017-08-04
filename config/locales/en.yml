@@ -34,7 +34,7 @@ en:
       content: "Copyright &copy; 2017, All Rights Reversed."
       help: "Help"
   static_pages:
-    home:
+    index:
       title: "HomePage"
       content: "Welcome to SampleApp !"
       button: "Signup now"
@@ -157,3 +157,11 @@ en:
     maxsize: "should be less than 5MB"
     js:
       maxsize: "Maximum file size is 5MB. Please choose a smaller file."
+  follower:
+    title: "Followers"
+  following:
+    title: "Following"
+    submit: "Follow"
+    unsubmit: "Unfollow"
+    follow: "following"
+    follower: "follower"

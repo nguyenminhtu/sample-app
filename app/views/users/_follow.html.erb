@@ -1,0 +1,7 @@
+<% id ||= params[:id] %>
+<%= form_for new_relation,
+  remote: true do |f| %>
+    <%= hidden_field_tag :followed_id, id %>
+    <%= f.submit t("following.submit"),
+      class: "btn btn-primary btn-block" %>
+<% end %>

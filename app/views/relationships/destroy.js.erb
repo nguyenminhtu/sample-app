@@ -1,0 +1,5 @@
+<% new_relation = current_user.active_relationships.build %>
+$('#follow_form').html('<%= j(render "users/follow", id: @user.id,\
+  new_relation: new_relation) %>');
+$('#followers').html('<%= pluralize @user.followers.count,\
+  "follower" %>');

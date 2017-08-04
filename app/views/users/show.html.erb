@@ -5,13 +5,24 @@
         <%= image_tag @user.gravatar_url, alt: @user.name %>
         <%= @user.name %>
       </h1>
+      <div class="stats">
+        <%= render "shared/stats", user: @user %>
+      </div>
     </div>
   </div>
 
   <div class="col-md-8">
+    <% if logged_in? %>
+      <% new_relation = current_user.active_relationships.build %>
+      <% del_relation = current_user.active_relationships.find_by followed_id:
+        params[:id] %>
+      <%= render "follow_form", user: @user,
+        new_relation: new_relation, del_relation: del_relation %>
+    <% end %>
     <% if @user.microposts.any? %>
       <div class="text-center">
-        <%= will_paginate @microposts, renderer: BootstrapPagination::Rails %>
+        <%= will_paginate @microposts,
+          renderer: BootstrapPagination::Rails %>
       </div>
       <h1>
         <%= t "microposts.main" %> (<%= @user.microposts.count %>)

@@ -1,0 +1,4 @@
+<%= form_for del_relation,
+  html: {method: :delete}, remote: true do |f| %>
+    <%= f.submit t("following.unsubmit"), class: "btn btn-block" %>
+<% end %>

@@ -3,9 +3,9 @@
   <p>
     <%= raw t(".content") %>
     <span class="text-left">
-      <%= link_to t(".about"), about_path %>
-      <%= link_to t(".contact"), contact_path %>
-      <%= link_to t(".help"), help_path %>
+      <%= link_to t(".about"), show_path("about") %>
+      <%= link_to t(".contact"), show_path("contact") %>
+      <%= link_to t(".help"), show_path("help") %>
     </span>
   </p>
 </footer>

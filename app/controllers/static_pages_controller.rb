@@ -1,9 +1,10 @@
 class StaticPagesController < ApplicationController
-  def home
+  attr_reader :user
+
+  def index
     if logged_in?
-      microposts = current_user.microposts
-      @micropost = microposts.build
-      @feed_items = microposts.most_recent.paginate page: params[:page],
+      @micropost = current_user.microposts.build
+      @feed_items = find_posts.most_recent.paginate page: params[:page],
         per_page: Settings.per_page
     else
       @micropost = Micropost.new
@@ -11,9 +12,24 @@ class StaticPagesController < ApplicationController
     end
   end
 
-  def help; end
+  def show
+    if valid_page?
+      render "static_pages/#{params[:page]}"
+    else
+      render file: "public/404.html", status: :not_found
+    end
+  end
 
-  def about; end
+  private
 
-  def contact; end
+  def find_posts
+    following_ids = "SELECT followed_id FROM relationships
+        WHERE follower_id = :user_id"
+    Micropost.feed following_ids, current_user.id
+  end
+
+  def valid_page?
+    File.exist?(Pathname.new Rails.root +
+      "app/views/static_pages/#{params[:page]}.html.erb")
+  end
 end
